@@ -5,8 +5,5 @@ group_id="${APACHE_GROUP_ID:-1000}"
 usermod -u "$user_id" www-data
 groupmod -g "$group_id" www-data
 
-# Start MySQL
-service mysql start
-
-# Ensure container keeps running
-apache2ctl -D FOREGROUND
+# Start supervisord
+supervisord

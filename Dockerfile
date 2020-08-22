@@ -43,10 +43,15 @@ ADD wordpress.tar.gz /home/ubuntu/wordpress
 RUN service mysql start && \
     mysql -u root -psecurepass < /home/ubuntu/wordpress-db/wordpress.sql
 
-RUN cp -fR /home/ubuntu/wordpress/wordpress/* /var/www/html
+RUN cp -fR /home/ubuntu/wordpress/wordpress/* /var/www/html && \
+    cp /home/ubuntu/wordpress/wordpress/.htaccess /var/www/html && \
+    rm /var/www/html/index.html
+
 RUN chown -R 1000:1000 /var/www/html
-RUN rm /var/www/html/index.html
+
+# Set up supervisor to act as an init system
+RUN apt-get install -y supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ADD init.sh /home/ubuntu/init.sh
-
 ENTRYPOINT ["sh", "/home/ubuntu/init.sh"]
