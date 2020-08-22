@@ -1,5 +1,5 @@
 # Self-contained Wordpress 5.5 Docker Image
-This image contains all the required stack for running a WP site. Ideal for plugins and themes development environment.
+This image contains all the required stack for running WP. Ideal for plugins and themes development environment. This is not intended to be used on a production environment.
 
 ## Platform
 Ubuntu 18.04, Apache/2.4.29, MySQL 5.7.31, and PHP 7.2
@@ -7,6 +7,14 @@ Ubuntu 18.04, Apache/2.4.29, MySQL 5.7.31, and PHP 7.2
 ## How to run
 ```
 $ docker run --rm --name container-name -p 8000:80 carlouni/wordpress
+```
+After the container has initialized, go to http://localhost:8000/ to access the site
+
+## Log in to admin panel
+Go to http://localhost:8000/wp-admin/ and use credentials below
+```
+User: admin
+Password: securepass
 ```
 
 ## How to share the plugins directory
