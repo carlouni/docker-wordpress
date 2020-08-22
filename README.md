@@ -1,8 +1,15 @@
-# Apache/2.4.29 and PHP 7.2 Docker Image
+# Self-contained Wordpress 5.5 Docker Image
+This image is
 
 ## How to run
 ```
-$ docker run --name container-name -p 80:80 -v "$PWD":/var/www/html carlouni/apache-php7.2:latest
+$ docker run --rm --name container-name -p 8000:80 -v "$PWD":/var/www/html carlouni/wordpress
+```
+
+## How to share plugin directory
+
+```
+docker run --rm --name container-name -p 8000:80 -v "$PWD":/var/www/html/wp-content/plugins/ carlouni/wordpress
 ```
 
 ## Troubleshooting
