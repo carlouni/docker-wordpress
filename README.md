@@ -25,7 +25,7 @@ docker run --rm --name container-name -p 8000:80 -v "$PWD":/var/www/html/wp-cont
 
 ## How to persist WP database data
 ```
-$ docker run --rm --name container-name -p 8000:80 -v your-volume:/var/lib/mysql carlouni/wordpress
+$ docker run --name container-name -p 8000:80 -v your-volume:/var/lib/mysql carlouni/wordpress
 ```
 
 ## Troubleshooting
